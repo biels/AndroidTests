@@ -31,11 +31,10 @@ public class PdfGenerator {
         TAG = getClass().getName();
     }
 
-    public void generatePdf(String fileName) {
-        ContextWrapper c = new ContextWrapper(ctx);
-        File filesDir = c.getFilesDir();
-        if(!filesDir.exists())filesDir.mkdir();
-        File file = new File(filesDir.getPath() + File.separator + fileName);
+    public File generatePdf(File dir, String fileName) {
+
+        if(!dir.exists())dir.mkdir();
+        File file = new File(dir.getPath() + File.separator + fileName);
         Document document = new Document(PageSize.A4);
         Log.i(TAG, file.getAbsolutePath());
 
@@ -44,6 +43,7 @@ public class PdfGenerator {
             pdfWriter = PdfWriter.getInstance(document, new FileOutputStream(file));
             try {
                 generateDocument(pdfWriter, document, getXML());
+                return file;
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -52,7 +52,7 @@ public class PdfGenerator {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
+       return null;
 
     }
     protected void generateDocument(PdfWriter pdfWriter,Document document, String xml) throws IOException {
@@ -60,11 +60,14 @@ public class PdfGenerator {
         document.addAuthor("Application");
         document.addCreator(ApplicationInfo.CREATOR.toString());
         document.addTitle("Title");
+        document.addCreationDate();
+        document.addSubject("T");
         XMLWorkerHelper xmlWorkerHelper = XMLWorkerHelper.getInstance();
         xmlWorkerHelper.parseXHtml(pdfWriter, document, new StringReader(xml));
+        document.close();
         Log.i(TAG, "PDF document generated");
     }
     protected String getXML(){
-        return "<html><head></head><body>Hello world</body></html>";
+       return "<html><head></head><body>Hello world</body></html>";
     }
 }
