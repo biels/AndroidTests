@@ -68,6 +68,7 @@ public class PdfGenerator {
         Log.i(TAG, "PDF document generated");
     }
     protected String getXML(){
-       return "<html><head></head><body>Hello world</body></html>";
+        DepositReport report = new DepositReport();
+        return report.getXML();
     }
 }
