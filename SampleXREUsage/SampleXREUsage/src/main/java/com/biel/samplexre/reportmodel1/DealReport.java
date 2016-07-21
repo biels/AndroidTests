@@ -2,7 +2,7 @@ package com.biel.samplexre.reportmodel1;
 
 import com.biel.xre.generation.Report;
 
-public class OWWTPReport extends Report{
+public class DealReport extends Report{
 
 	@Override
 	public String getXHTML() {
