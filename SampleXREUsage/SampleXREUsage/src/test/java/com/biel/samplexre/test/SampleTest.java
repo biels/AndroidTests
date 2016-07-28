@@ -9,7 +9,6 @@ import com.biel.samplexre.reportmodel1.DealReport;
 public class SampleTest {
 	@Test public void testSomeLibraryMethod() {
         DealReport dr = new DealReport();
-        dr.getXHTML();
         assertTrue(dr.getXHTML().startsWith("<"));
         //assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
