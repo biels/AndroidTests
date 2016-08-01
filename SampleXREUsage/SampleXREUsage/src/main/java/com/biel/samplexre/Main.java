@@ -21,6 +21,7 @@ public class Main {
 	}
 	public static void reportModel1(){
 		DealReport r = new DealReport();
+		
 		generateAndExport(r);
 	}
 
