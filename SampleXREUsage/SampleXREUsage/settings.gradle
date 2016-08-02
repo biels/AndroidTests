@@ -14,7 +14,6 @@
 include 'shared'
 include 'api'
 include 'services:webservice'
-includeFlat 'XHTMLReportingEngine'
 */
 
 rootProject.name = 'SampleXREUsage'

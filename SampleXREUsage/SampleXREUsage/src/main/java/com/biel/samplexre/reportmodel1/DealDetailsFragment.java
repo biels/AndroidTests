@@ -4,13 +4,13 @@ import com.biel.xre.generation.ReportFragment;
 import com.biel.xre.generation.xhtml.*;
 
 public class DealDetailsFragment extends ReportFragment {
-
+	DealDetailsTableFragment ddtf = new DealDetailsTableFragment();
 	@Override
 	public String getXHTML() {
 		// TODO Auto-generated method stub
 		Literal header = new Literal("Details header");
-		
-		return new LinearLayout(new Tag("h2", header), new Literal("Table here")).getXHTML();
+		LinearLayout linearLayout = new LinearLayout(new Tag("h2", header), ddtf);
+		return linearLayout.getXHTML();
 	}
 
 }
