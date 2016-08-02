@@ -9,7 +9,8 @@ public class DealReport extends Report{
 	@Override
 	public String getXHTML() {
 		// TODO Auto-generated method stub
-		return new LinearLayout(header, details).getXHTML();
+		String xhtml = new LinearLayout(header, details).getXHTML();
+		return xhtml;
 	}
 
 }

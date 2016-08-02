@@ -11,7 +11,7 @@ public class DealHeaderFragment extends ReportFragment{
 	@Override
 	public String getXHTML() {
 		// TODO Auto-generated method stub
-		return new Tag("h1", new Literal("Header"), new TagAttributes(new StyleAttribute("color:blue;"))).getXHTML();
+		return new Tag("h1", new Literal("Header"), new TagAttributes(new StyleAttribute("color:red;"))).getXHTML();
 	}
 
 }
