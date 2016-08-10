@@ -60,6 +60,7 @@ task generateLog4jConfig{
 		}	    
 	}
 	def xmlFile = file('src/main/resources/log4j2.xml')
+	xmlFile.getParentFile().mkdirs();
 	xmlFile.delete()
 	xmlFile.write(writer.toString())
 }
