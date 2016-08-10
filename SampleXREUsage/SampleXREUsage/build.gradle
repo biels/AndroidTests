@@ -63,3 +63,4 @@ task generateLog4jConfig{
 	xmlFile.delete()
 	xmlFile.write(writer.toString())
 }
+//build.dependsOn generateLog4jConfig
