@@ -1,9 +1,9 @@
 package com.biel.samplexre.reportmodel1;
 
-import com.biel.xre.generation.Report;
+import com.biel.xre.generation.XHTMLReport;
 import com.biel.xre.generation.xhtml.LinearLayout;
 
-public class DealReport extends Report{
+public class DealReport extends XHTMLReport{
 	DealHeaderFragment header = new DealHeaderFragment();
 	DealDetailsFragment details = new DealDetailsFragment();
 	@Override

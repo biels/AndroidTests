@@ -1,11 +1,11 @@
 package com.biel.samplexre.reportmodel1;
 
-import com.biel.xre.generation.ReportFragment;
+import com.biel.xre.generation.XHTMLReportFragment;
 import com.biel.xre.generation.xhtml.LinearLayout;
 import com.biel.xre.generation.xhtml.Literal;
 import com.biel.xre.generation.xhtml.Tag;
 
-public class DealDetailsTableFragment extends ReportFragment {
+public class DealDetailsTableFragment extends XHTMLReportFragment {
 
 	@Override
 	public String getXHTML() {

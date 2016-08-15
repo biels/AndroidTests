@@ -3,7 +3,7 @@ package com.biel.samplexre;
 import java.io.File;
 
 import com.biel.samplexre.reportmodel1.DealReport;
-import com.biel.xre.generation.Report;
+import com.biel.xre.generation.XHTMLReport;
 import com.biel.xre.generation.exporting.pdf.PdfReportExporter;
 
 public class Main {
@@ -15,7 +15,7 @@ public class Main {
 		// 2. Complex layout sample
 		reportModel1();
 	}
-	public static void generateAndExport(Report r){
+	public static void generateAndExport(XHTMLReport r){
 		PdfReportExporter pre = new PdfReportExporter(r);
 		pre.export(new File("exported"), r.getClass().getSimpleName().concat(".pdf"));
 	}
