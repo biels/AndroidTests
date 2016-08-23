@@ -3,6 +3,7 @@ package com.biel.sampleoor;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import com.biel.sampleoor.reportmodel1.ExtendedTodoListReport;
 import com.biel.sampleoor.reportmodel1.TodoListReport;
 import com.biel.sampleoor.reportmodel2.SampleInvoiceReport;
+import com.biel.sampleoor.reportmodel2.SampleInvoiceReport.SampleInvoiceModel;
+import com.biel.sampleoor.reportmodel2.SampleInvoiceReport.SampleInvoiceModel.ProductInfo;
 import com.biel.xre.generation.XHTMLReport;
 import com.biel.xre.generation.exporting.pdf.PdfReportExporter;
 
@@ -46,7 +49,24 @@ public class Main {
 		l.info("Generating TodoListReport...");
 		SampleInvoiceReport report = new SampleInvoiceReport();
 		//Model filling
-		//report.getModel()
+		SampleInvoiceModel m = report.getModel();
+		Stream.of(
+				m.new ProductInfo() {{ 
+					name = "Product 1";
+					description = "Description of the first product";
+					amount = 4;
+					price = 50;
+				}},
+				m.new ProductInfo() {{ 
+					name = "Product 2";
+					description = "Description of the second product";
+					amount = 3;
+					price = 80;
+				}} 
+				)
+		.forEach(p -> m.getProductList().getList().add(p));
+
+
 		//Generation
 		generateAndExport(report.getView());
 	}
