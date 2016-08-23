@@ -4,8 +4,13 @@ import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import com.biel.oor.Report;
+import com.biel.sampleoor.reportmodel2.SampleInvoiceReport.SampleInvoiceController.ProductTableRow;
 import com.biel.xre.generation.TableFragment;
 import com.biel.xre.generation.TableFragment.TableRow;
 import com.biel.xre.generation.XHTMLFragment;
@@ -26,123 +31,37 @@ public class SampleInvoiceReport extends Report {
 		public ProductList productList = new ProductList();
 		//To override inner classes, override in the constructor
 		public class CompanyInfo {
-			private String name;
-			private String slogan;
-			private String city;
-			private String address;
-			private String zip;
-			private String phone;
-			public String getName() {
-				return name;
-			}
-			public void setName(String name) {
-				this.name = name;
-			}
-			public String getSlogan() {
-				return slogan;
-			}
-			public void setSlogan(String slogan) {
-				this.slogan = slogan;
-			}
-			public String getCity() {
-				return city;
-			}
-			public void setCity(String city) {
-				this.city = city;
-			}
-			public String getAddress() {
-				return address;
-			}
-			public void setAddress(String address) {
-				this.address = address;
-			}
-			public String getZip() {
-				return zip;
-			}
-			public void setZip(String zip) {
-				this.zip = zip;
-			}
-			public String getPhone() {
-				return phone;
-			}
-			public void setPhone(String phone) {
-				this.phone = phone;
-			}
-
+			public String name;
+			public String slogan;
+			public String city;
+			public String address;
+			public String zip;
+			public String phone;
+			
 		}
 		public class ContactInfo {
-			private String name;
-			private String phone;
-			private String email;
-			public String getName() {
-				return name;
-			}
-			public void setName(String name) {
-				this.name = name;
-			}
-			public String getPhone() {
-				return phone;
-			}
-			public void setPhone(String phone) {
-				this.phone = phone;
-			}
-			public String getEmail() {
-				return email;
-			}
-			public void setEmail(String email) {
-				this.email = email;
-			}
-
-
+			public String name;
+			public String phone;
+			public String email;
+			
 		}
 		public class ProductInfo{
-			private String name;
-			private String description;
-			private double price;
-			private int amount;
+			public String name;
+			public String description;
+			public double price;
+			public int amount;
 			//Support for nested products
-			private ArrayList<ProductInfo> products = new ArrayList<ProductInfo>();
+			public List<ProductInfo> products = new ArrayList<ProductInfo>();
 
 			//Edit getters to match view's needs. Add getters for priceBeforeDiscount... 
 			//Maybe merge product and productrequest into InvoiceProduct
-			public String getName() {
-				return name;
-			}
-			public void setName(String name) {
-				this.name = name;
-			}
-			public String getDescription() {
-				return description;
-			}
-			public void setDescription(String description) {
-				this.description = description;
-			}
-			protected double getPrice() {
-				return price;
-			}
-			public void setPrice(double price) {
-				this.price = price;
-			}
-			public ArrayList<ProductInfo> getProducts() {
-				return products;
-			}
-			public void setProducts(ArrayList<ProductInfo> products) {
-				this.products = products;
-			}
-			public int getAmount() {
-				return amount;
-			}
-			public void setAmount(int amount) {
-				this.amount = amount;
-			}
-			public double getTotal(){ //Directly calculated fields are part of the model
-				return getPrice() * getAmount();
-			}
+			
+			
 		}
 		public class ProductList{
-			private List<? extends ProductInfo> productList = new ArrayList<>();
+			private List<ProductInfo> productList = new ArrayList<>();
 			//Discounts, taxes, etc.
-			public List<? extends ProductInfo> getProductList() {
+			public List<ProductInfo> getList() {
 				return productList;
 			}	
 		}
@@ -159,7 +78,7 @@ public class SampleInvoiceReport extends Report {
 	}
 
 	//CONTROLLER - ViewModel
-	public class SampleInvoiceController extends Controller{
+	public class SampleInvoiceController extends com.biel.oor.Report.Controller{
 		/** 
 		 *	Provides the product table information, which appears at the center of the invoice.
 		 */
@@ -170,10 +89,11 @@ public class SampleInvoiceReport extends Report {
 //			public List<ProductInfo> getProductList(){
 //				return 
 //			}
+			public List<ProductTableRow> getRows(){
+				return IntStream.range(0, getInnerModel().getList().size()).mapToObj(i -> new ProductTableRow(i)).collect(Collectors.toList());
+			}
 			private double calculateGrandTotal(){
-				int s = 0;
-				for(SampleInvoiceModel.ProductInfo p : getInnerModel().getProductList())s+= p.getTotal();
-				return s;
+				return getInnerModel().getList().stream().mapToDouble(p -> p.price * p.amount).sum();
 			}
 			public String getGrandTotal(){
 				return formatCurrencyField(calculateGrandTotal());
@@ -183,7 +103,7 @@ public class SampleInvoiceReport extends Report {
 			return new ProductTable();
 		}
 		/**
-		 * Provides the necessary information to generate a specific row from the product table
+		 * Provides the necessary information to generate a specific row from the product table, reperesenting a product
 		 */
 		public class ProductTableRow{
 			private int index;
@@ -192,12 +112,16 @@ public class SampleInvoiceReport extends Report {
 				this.index = index;
 			}
 			public SampleInvoiceModel.ProductInfo getInnerModel() {
-				return getModel().getProductList().getProductList().get(index);
+				return getModel().getProductList().getList().get(index);
 			}
-
-			
+			public double calculateTotal(){ //Directly calculated fields are part of the model
+				return getInnerModel().price * getInnerModel().amount;
+			}
+			public String getPrice(){
+				return formatCurrencyField(getInnerModel().price);
+			}
 			public String getTotal(){
-				return formatCurrencyField(getInnerModel().getTotal());
+				return formatCurrencyField(calculateTotal());
 			}
 		}
 		
@@ -252,9 +176,15 @@ public class SampleInvoiceReport extends Report {
 		}
 		protected XHTMLFragment getProductTable() {
 			TableFragment table = new TableFragment();
-			TableRow header = table.new TableRow();
-			
-			table.addRow();
+			table.addRow(Stream.of("Product", "Description", "Unit price", "Amount", "Total").map(s -> new Literal(s)).collect(Collectors.toList()));
+			Consumer<? super ProductTableRow> consumer = r -> table.addRow(
+					new Literal(r.getInnerModel().name),
+					new Literal(r.getInnerModel().description),
+					new Literal(r.getPrice()),
+					new Literal(r.getInnerModel().amount),
+					new Literal(r.getTotal())
+					);
+			getController().getProductTable().getRows().forEach(consumer);
 			return table;
 		}
 
