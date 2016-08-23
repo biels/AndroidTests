@@ -1,5 +1,6 @@
 package com.biel.sampleoor.reportmodel2;
 
+import java.security.GeneralSecurityException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -172,7 +173,11 @@ public class SampleInvoiceReport extends Report {
 		protected XHTMLFragment getBodyDetails() {
 			StyleAttribute style = new StyleAttribute(
 					"background: lightblue; border-bottom: 1px solid #AAAAAA; padding: 10px 0; margin-bottom: 20px;");
-			return new Div(new LinearLayout(new H(2, "Products"), getProductTable()),  new TagAttributes(style));
+			return new Div(new LinearLayout(new H(2, "Products"), getProductTable(), getBodyDetailsSummary()),  new TagAttributes(style));
+		}
+		protected Div getBodyDetailsSummary() {
+			StyleAttribute styleAttribute = new StyleAttribute("background-color: #ffcc00;");
+			return new Div(new Literal("Total: " + getController().getProductTable().getGrandTotal()), new TagAttributes(styleAttribute));
 		}
 		protected XHTMLFragment getProductTable() {
 			TableFragment table = new TableFragment();
