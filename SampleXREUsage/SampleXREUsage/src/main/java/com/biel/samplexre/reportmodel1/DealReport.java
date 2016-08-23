@@ -12,5 +12,10 @@ public class DealReport extends XHTMLReport{
 		String xhtml = new LinearLayout(header, details).getXHTML();
 		return xhtml;
 	}
+	@Override
+	protected String getCSS() {
+		// TODO Auto-generated method stub
+		return "";
+	}
 
 }
