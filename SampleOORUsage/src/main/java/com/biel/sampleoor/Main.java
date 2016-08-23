@@ -9,12 +9,14 @@ import org.slf4j.LoggerFactory;
 
 import com.biel.sampleoor.reportmodel1.ExtendedTodoListReport;
 import com.biel.sampleoor.reportmodel1.TodoListReport;
+import com.biel.sampleoor.reportmodel2.SampleInvoiceReport;
 import com.biel.xre.generation.XHTMLReport;
 import com.biel.xre.generation.exporting.pdf.PdfReportExporter;
 
 public class Main {
 	final static Logger l = LoggerFactory.getLogger(Main.class);
 	public static void main(String[] args) {
+		generateSampleInvoiceReport();
 		generateTodoListReport();
 		generateExtendedTodoListReport();
 
@@ -37,6 +39,14 @@ public class Main {
 		//Model filling
 		report.getModel().getTodoList().addAll(Arrays.asList("Work 1", "Work 2", "Other things"));
 		report.getModel().getCompletion().addAll(Arrays.asList(11,33,85));
+		//Generation
+		generateAndExport(report.getView());
+	}
+	public static void generateSampleInvoiceReport(){
+		l.info("Generating TodoListReport...");
+		SampleInvoiceReport report = new SampleInvoiceReport();
+		//Model filling
+		//report.getModel()
 		//Generation
 		generateAndExport(report.getView());
 	}

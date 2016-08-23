@@ -53,6 +53,11 @@ public class TodoListReport extends Report {
 			String xhtml = new LinearLayout(getHeading(), getBody()).getXHTML();
 			return xhtml;
 		}
+		@Override
+		protected String getCSS() {
+			// TODO Auto-generated method stub
+			return "";
+		}
 		
 	}
 	
