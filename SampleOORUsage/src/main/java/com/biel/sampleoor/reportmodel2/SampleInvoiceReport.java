@@ -143,13 +143,21 @@ public class SampleInvoiceReport extends Report {
 		@Override
 		protected String getCSS() {
 			return "div{"
-					+ "padding: 0.3em"
-					+ "border-radius: 25px;"
-					+ "}";
+					+ "padding: 8px"
+					+ "}"
+					+ "th, td {\r\n" + 
+					"    padding: 8px;\r\n" + 
+					"    text-align: left;\r\n" + 
+					"    border-bottom: 1px solid #ddd;\r\n" + 
+					"}"
+					+ "table {\r\n" + 
+					"    border-collapse: collapse;\r\n" + 
+					"    width: 100%;\r\n" + 
+					"}";
 		}
 		protected XHTMLFragment getHeader() {
 			StyleAttribute style = new StyleAttribute(
-					"background: LightSeaGreen;"
+					"background: #407F7F;"
 							+ "padding: 0px 0;"
 							+ "font-size: 1.4em;"
 							+ "color: white;"
@@ -165,19 +173,21 @@ public class SampleInvoiceReport extends Report {
 			return new Div(new H(1, "TADIPOL"), new TagAttributes(new StyleAttribute("float: left;")));
 		}
 		protected XHTMLFragment getBody() {
-			return new Div(new LinearLayout(getBodyHeader(), getBodyDetails()));
+			return new Div(new LinearLayout(getBodyHeader(), getBodyDetails()), new StyleAttribute("background: lightyellow;"));
 		}
 		protected XHTMLFragment getBodyHeader() {
-			return new Div("Body header");
+			return new Div("Company info");
 		}
 		protected XHTMLFragment getBodyDetails() {
 			StyleAttribute style = new StyleAttribute(
 					"background: lightblue; border-bottom: 1px solid #AAAAAA; padding: 10px 0; margin-bottom: 20px;");
-			return new Div(new LinearLayout(new H(2, "Products"), getProductTable(), getBodyDetailsSummary()),  new TagAttributes(style));
+			return new Div(new LinearLayout(new H(2, new Literal("Products"), new StyleAttribute("padding: right 8px;")), getProductTable(), getBodyDetailsSummary()),  new TagAttributes(style));
 		}
 		protected Div getBodyDetailsSummary() {
-			StyleAttribute styleAttribute = new StyleAttribute("background-color: #ffcc00;");
-			return new Div(new Literal("Total: " + getController().getProductTable().getGrandTotal()), new TagAttributes(styleAttribute));
+			StyleAttribute style = new StyleAttribute("background-color: #ffcc00; text-align: right; padding: 1px; width: 100%; display: inline-block; float: right;");
+			StyleAttribute totalStyle = new StyleAttribute("margin-right: 0");
+			Div total = new Div(new Literal("Total: " + getController().getProductTable().getGrandTotal()));
+			return new Div(total, new TagAttributes(style));
 		}
 		protected XHTMLFragment getProductTable() {
 			TableFragment table = new TableFragment();
@@ -194,8 +204,8 @@ public class SampleInvoiceReport extends Report {
 		}
 
 		protected XHTMLFragment getFooter() {
-			StyleAttribute styleAttribute = new StyleAttribute("background-color: lightblue;");
-			return new Tag("footer", new Literal("Footer content"), new TagAttributes(styleAttribute));
+			StyleAttribute styleAttribute = new StyleAttribute("background-color: #AA3939; bottom: 0;");
+			return new Tag("div", new Literal("Footer content"), new TagAttributes(styleAttribute));
 		}
 
 		@Override
