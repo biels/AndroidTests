@@ -29,7 +29,7 @@ import java8.util.stream.StreamSupport;
 /**
  * Created by Biel on 1/8/2016.
  */
-public class SampleReport extends Report {
+public class SampleInvoiceReport extends Report {
     //MODEL
     public class SampleInvoiceModel extends Model{
         public CompanyInfo companyInfo = new CompanyInfo();
