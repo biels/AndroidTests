@@ -20,6 +20,15 @@ android {
 }
 
 dependencies {
+    compile 'com.biel.oor:ObjectOrientedReports:1.0.2'
+    compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
+
+    compile 'net.sourceforge.streamsupport:streamsupport:1.5.1'
+    compile 'net.sourceforge.streamsupport:streamsupport-cfuture:1.5.1'
+    compile 'net.sourceforge.streamsupport:streamsupport-atomic:1.5.1'
+    compile 'net.sourceforge.streamsupport:streamsupport-flow:1.5.1'
+    compile 'net.sourceforge.streamsupport:streamsupport-literal:1.5.1'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
