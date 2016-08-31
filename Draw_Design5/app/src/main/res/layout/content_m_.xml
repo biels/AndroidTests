@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="45dp"
+    tools:context=".M_A"
+    android:orientation="vertical">
+
+
+    <TabHost android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TabWidget android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:id="@android:id/tabs"
+                android:background="@color/colorPrimaryDark"
+
+                />
+
+            <FrameLayout android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@android:id/tabcontent"
+                android:background="@color/black">
+
+                <LinearLayout android:id="@+id/tab1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1"
+                    android:clickable="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="        DATOS OFERTA"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:id="@+id/textView3" />
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="0dp"
+                        android:text=""
+                        android:id="@+id/autoCompleteTextView"
+                        android:background="@color/colorPrimaryDark"
+                        android:hint=">>   EMPRESA SOLICITANTE"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:textColorHint="@color/lightBlueA200" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:textSize="30sp"
+                        android:id="@+id/spinner"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"
+                        />
+
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner2"
+                        android:textSize="30sp"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner3"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner4"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner5"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:background="@color/colorPrimaryDark"
+                        android:ems="10"
+                        android:id="@+id/editText"
+                        android:gravity="top"
+
+                        android:paddingLeft="8dp"
+                        android:paddingTop="16dp"
+                        android:text=""
+                        android:hint=">>   COMENTARIOS OFERTA"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:textColorHint="@color/lightBlueA200" />
+                    />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout android:id="@+id/tab2"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="       ACCESORIOS"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:id="@+id/textView2" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="1 Boca hombre sup.ø550 PEHD + aireac."
+                        android:checked="true"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:id="@+id/checkBox" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:checked="true"
+                        android:text="1 Tubulad. superior llenado DN80 PN10"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:id="@+id/checkBox2" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="1 Tubulad. later. inf. vaciado DN80 PN10"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="16sp"                        android:checked="true"
+
+                        android:textColor="@color/lightBlueA200"
+                        android:id="@+id/checkBox3" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="2 Orejetas metálicas de elevación"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="16sp"
+                        android:checked="true"
+                        android:textColor="@color/lightBlueA200"
+                        android:id="@+id/checkBox4" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner6"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner7"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner8"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner9"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingLeft="0dp"
+                        android:paddingTop="0dp"
+                        android:id="@+id/spinner10"
+                        android:textSize="16sp"
+                        android:textColor="@color/lightBlueA200"
+                        android:background="@color/colorPrimaryDark"
+                        android:clickable="true"/>
+                </LinearLayout>
+
+
+                <LinearLayout android:id="@+id/tab3"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Button"
+                        android:id="@+id/button" />
+                </LinearLayout>
+
+
+                <LinearLayout android:id="@+id/tab4"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>
+

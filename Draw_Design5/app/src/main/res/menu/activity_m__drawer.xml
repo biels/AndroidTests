@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/ic_verified_user_black_24dp"
+            android:title="Password" />
+
+        <item
+            android:id="@+id/preferencias_remitente"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="Datos Usuario" />
+
+        <item
+            android:id="@+id/condiciones"
+            android:icon="@drawable/ic_view_headline_black_24dp"
+            android:title="Información" />
+
+        <item
+            android:id="@+id/oferta"
+            android:icon="@drawable/ic_create_new_folder_black_24dp"
+            android:title="Generar Oferta" />
+        <item
+            android:id="@+id/anejos"
+            android:icon="@drawable/ic_attach_file_black_24dp"
+            android:title="Docum. Adic" />
+        <item
+            android:id="@+id/enviar"
+            android:icon="@drawable/ic_local_post_office_black_24dp"
+            android:title="Enviar Oferta" />
+
+        <item
+            android:id="@+id/plano"
+            android:icon="@drawable/ic_burst_mode_black_24dp"
+            android:title="Enviar Plano" />
+
+        <item
+            android:id="@+id/guardar"
+            android:icon="@drawable/ic_save_black_24dp"
+            android:title="Guardar" />
+
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/ic_forward_black_24dp"
+            android:title="Salir" />
+
+    </group>
+
+ </menu>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+<PreferenceCategory android:title="Datos del Usuario">
+
+    <CheckBoxPreference
+        android:key="opcion1"
+        android:title="Mostrar datos del usuario"
+        android:summary="Incluir los datos del usuario en la oferta"/>
+
+    <EditTextPreference
+        android:key="opcion2"
+        android:title="Nombre Usuario"
+        android:summary="Introducir el nombre del usuario"
+        android:dialogTitle="Introduce nombre usuario"/>
+
+    <EditTextPreference
+        android:key="opcion3"
+        android:title="Nombre Empresa"
+        android:summary="Introducir el nombre de la empresa"
+        android:dialogTitle="Introduce nombre empresa"/>
+
+    <EditTextPreference
+        android:key="opcion4"
+        android:title="Dirección empresa"
+        android:summary="Introducir la dirección"
+        android:dialogTitle="Introduce la dirección de la empresa"/>
+
+    <EditTextPreference
+        android:key="opcion5"
+        android:title="Localidad"
+        android:summary="Introducir codigo postal y localidad"
+        android:dialogTitle="Introduce el código postal y la localidad"/>
+
+    <EditTextPreference
+        android:key="opcion6"
+        android:title="Teléfono empresa"
+        android:summary="Introducir el teléfono"
+        android:dialogTitle="Introduce el teléfono de la empresa"/>
+
+</PreferenceCategory >
+
+
+
+    <PreferenceCategory android:title="Datos">
+        <ListPreference
+            android:key="opcion8"
+            android:title="País"
+            android:summary="País del Usuario"
+            android:dialogTitle="Indicar País"
+            android:entries="@array/pais"
+            android:entryValues="@array/codigopais"/>
+        <!--@array/pais ÉS TAL COM HO VEU EL USUARI-->
+        <!--@array/Codigopais ÉS TAL COM QUEDARÀ GUARDAT AL SISTEMA-->
+
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

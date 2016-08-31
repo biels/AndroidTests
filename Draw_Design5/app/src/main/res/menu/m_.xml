@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/Opcion1"
+        android:title="Opc 1">
+
+
+        <menu>
+            <item
+                android:id="@+id/Opcion1A"
+                android:title="Opc 1.A"/>
+            <item
+                android:id="@+id/Opcion1B"
+                android:title="Opc 1.B"/>
+
+
+        </menu>
+
+    </item>
+
+
+
+    <item
+        android:id="@+id/Opcion2"
+        android:title="Opc 2"/>
+
+    <item
+        android:id="@+id/Opcion3"
+        android:title="Opc 3"/>
+
+    <item
+        android:id="@+id/Opcion4"
+        android:title="Opc 4"/>
+
+</menu>
+
