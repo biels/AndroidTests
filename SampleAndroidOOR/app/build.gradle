@@ -11,6 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    dexOptions {
+        preDexLibraries = false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -22,6 +25,7 @@ android {
 dependencies {
     compile 'com.biel.oor:ObjectOrientedReports:1.0.2'
     compile group: 'org.slf4j', name: 'slf4j-android', version: '1.7.21'
+
 
     compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
 
